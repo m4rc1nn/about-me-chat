@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ShootingStars } from "./components/ui/shooting-stars";
 import StarsBackground from "./components/ui/stars-bg";
 import VanishInput from "./components/ui/vanish-input";
-import getAnswearResponse from "./lib/openai";
+import getAnswearResponse from "../lib/openai";
 import { TextGenerateEffect } from "./components/ui/text-generate-effect";
 
 const placeholders = [
