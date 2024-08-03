@@ -28,8 +28,7 @@ export default function Home() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = async () => {
     setAnswear(null);
     const response = await getAnswearResponse(message);
     if (response === null) return setAnswear("I'm having trouble connecting to the API, please try again later.")
@@ -43,7 +42,9 @@ export default function Home() {
       <VanishInput
         placeholders={placeholders}
         onChange={(e) => handleChange(e)}
-        onSubmit={(e) => onSubmit(e)}
+        onSubmit={() => {
+          onSubmit()
+        }}
       />
       <div className="mt-10 sm:mt-20 p-4 backdrop-blur-lg max-w-4xl">
         {answear ? <TextGenerateEffect words={answear} /> : <div className="opacity-0">
